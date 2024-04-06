@@ -1,0 +1,135 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  background-color: #493d63;
+  font-family: "Shantell Sans", cursive;
+  height: 100vh;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+.list-reset {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.btn-reset {
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.btn {
+  position: relative;
+  outline: none;
+  border-radius: 15px;
+  padding: 16px 35px;
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 15px;
+  text-transform: uppercase;
+  color: #000;
+  background-color: #777c4f;
+  transition: background-color 0.3s ease-in-out;
+}
+
+button:hover {
+  background-color: #9ea569;
+}
+
+button:active {
+  background-color: #515436;
+}
+
+.container {
+  max-width: 1600px;
+  padding: 0 15px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.header {
+  padding: 18px 0;
+  background-color: #472b59;
+  height: 10vh;
+  width: 100%;
+}
+
+.header__center {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header__title {
+  margin: 0;
+  color: #777c4f;
+  font-size: 64px;
+}
+
+.header__text {
+  margin: 0;
+  color: #777c4f;
+  font-size: 20px;
+}
+
+.footer {
+  background-color: #472b59;
+  height: 10vh;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+}
+
+.footer__center {
+  display: flex;
+  justify-content: center;
+  font-size: 24px;
+}
+
+.footer__text {
+  margin: 0;
+  font-size: 24px;
+  color: #777c4f;
+}
+
+.footer__link:hover {
+  color: #9ea569;
+}
+
+.footer__link:active {
+  color: #515436;
+}
+
+.game {
+  padding: 50px;
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.card {
+  min-height: 300px;
+  outline: 3px solid #777c4f;
+  width: calc((100% - 40px * 3) / (3 + 1));
+}
