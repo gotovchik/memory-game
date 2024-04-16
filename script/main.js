@@ -44,10 +44,29 @@ function startGame(count = 8) {
     cardNumber.textContent = nums[index];
     cardNumber.classList.add("card__number");
     const card = document.createElement("div");
+    const cardFront = document.createElement("div");
+    const cardBack = document.createElement("div");
     card.classList.add("card");
-    card.append(cardNumber);
+    card.id = nums[index];
+    cardFront.append(cardNumber);
+    cardFront.classList.add("card__front");
+    cardBack.classList.add("card__back");
+    cardBack.append(cardNumber);
+    card.append(cardFront);
+    card.append(cardBack);
     game.append(card);
+    card.classList.add("flip");
+    setTimeout(() => {
+      card.classList.remove("flip");
+    }, 5000);
   }
+
+  const cards = document.querySelectorAll(".card");
+  cards.forEach((card) => {
+    card.addEventListener("click", () => {
+      card.classList.toggle("flip");
+    });
+  });
 }
 
 function cleanField() {

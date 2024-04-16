@@ -9,7 +9,7 @@ html {
 }
 
 body {
-  background-color: #493d63;
+  background: linear-gradient(45deg, #9ea569, #472b59);
   font-family: "Shantell Sans", cursive;
   height: 100vh;
 }
@@ -90,6 +90,35 @@ button:active {
   font-size: 20px;
 }
 
+.flowtext {
+  background: linear-gradient(
+    90deg,
+    #fff,
+    #e8eeb6,
+    #cdde4a,
+    #9ea569,
+    #414618,
+    #242802,
+    #414618,
+    #9ea569,
+    #cdde4a,
+    #e8eeb6
+  );
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textflow 8s ease infinite;
+}
+@keyframes textflow {
+  from {
+    background-position: 0% center;
+  }
+  to {
+    background-position: 200% center;
+  }
+}
+
 .footer {
   background-color: #472b59;
   height: 75px;
@@ -147,14 +176,72 @@ button:active {
 }
 
 .card {
-  border: 1px solid #777c4f;
+  position: relative;
+  /* border: 3px solid #cdde4a; */
   border-radius: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+
+  transition: all 0.3s;
 }
 
 .card__number {
   color: #777c4f;
   font-size: 48px;
+}
+
+.card__front {
+  float: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 900;
+  -webkit-transform: rotateX(0) rotateY(0);
+  transform: rotateX(0) rotateY(0);
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+  border-radius: inherit;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #000, #472b59);
+}
+
+.flip .card__front {
+  z-index: 900;
+  -webkit-transform: rotateY(179deg);
+  transform: rotateY(179deg);
+}
+
+.card__back {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(45deg, #e8eeb6, #fff);
+  float: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 800;
+  -webkit-transform: rotateY(-179deg);
+  transform: rotateY(-179deg);
+
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+
+.flip .card__back {
+  z-index: 1000;
+  -webkit-transform: rotateX(0) rotateY(0);
+  transform: rotateX(0) rotateY(0);
 }
