@@ -9,7 +9,7 @@ html {
 }
 
 body {
-  background: linear-gradient(45deg, #9ea569, #472b59);
+  background-color: #fff;
   font-family: "Shantell Sans", cursive;
   height: 100vh;
 }
@@ -46,7 +46,7 @@ img {
   font-size: 15px;
   text-transform: uppercase;
   color: #000;
-  background-color: #777c4f;
+  background-color: #e8f682;
   transition: background-color 0.3s ease-in-out;
 }
 
@@ -80,17 +80,17 @@ button:active {
 
 .header__title {
   margin: 0;
-  color: #777c4f;
+  color: #e8f682;
   font-size: 64px;
 }
 
 .header__text {
   margin: 0;
-  color: #777c4f;
+  color: #e8f682;
   font-size: 20px;
 }
 
-.flowtext {
+/* .flowtext {
   background: linear-gradient(
     90deg,
     #fff,
@@ -117,7 +117,7 @@ button:active {
   to {
     background-position: 200% center;
   }
-}
+} */
 
 .footer {
   background-color: #472b59;
@@ -138,7 +138,7 @@ button:active {
 .footer__text {
   margin: 0;
   font-size: 24px;
-  color: #777c4f;
+  color: #e8f682;
 }
 
 .footer__link:hover {
@@ -175,20 +175,40 @@ button:active {
   gap: 20px;
 }
 
+.game__result {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.game__congratulations {
+  font-size: 36px;
+  color: #472b59;
+  align-self: center;
+  margin: 0;
+  padding: 0;
+}
 .card {
   position: relative;
-  /* border: 3px solid #cdde4a; */
   border-radius: 20px;
 
   transition: all 0.3s;
 }
 
 .card__number {
-  color: #777c4f;
+  color: #472b59;
+  font-size: 48px;
+}
+
+.card__question {
+  color: #e8f682;
   font-size: 48px;
 }
 
 .card__front {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   float: none;
   position: absolute;
   top: 0;
@@ -221,7 +241,7 @@ button:active {
   width: 100%;
   height: 100%;
   border-radius: inherit;
-  background: linear-gradient(45deg, #e8eeb6, #fff);
+  background-color: #e8f682;
   float: none;
   position: absolute;
   top: 0;
@@ -244,4 +264,9 @@ button:active {
   z-index: 1000;
   -webkit-transform: rotateX(0) rotateY(0);
   transform: rotateX(0) rotateY(0);
+}
+
+.success .card__back {
+  background-color: #98ab0b !important;
+  border: 5px solid #7c8c06;
 }
