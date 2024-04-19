@@ -4,9 +4,54 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Игра в пары</title>
-    <script defer src="main.js"></script>
     <link rel="stylesheet" href="css/normalize.css" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Shantell+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+      rel="stylesheet"
+    />
+    <script defer src="script/main.js"></script>
   </head>
-  <body></body>
+  <body>
+    <header class="header">
+      <div class="container">
+        <div class="header__center">
+          <h1 class="header__title">Игра в пары</h1>
+          <div class="timer"></div>
+          <div class="buttons">
+            <p class="header__text">Выбор сложности:</p>
+            <button class="btn btn-reset" id="easy" onclick="startGame();">
+              Легкий
+            </button>
+            <button class="btn btn-reset" id="middle" onclick="startGame(12);">
+              Средний
+            </button>
+            <button class="btn btn-reset" id="hard" onclick="startGame(24);">
+              Сложный
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main>
+      <section class="game container" id="game"></section>
+    </main>
+    <footer class="footer">
+      <div class="container">
+        <div class="footer__center">
+          <span class="footer__text"
+            >Made by
+            <a
+              href="https://github.com/gotovchik"
+              class="footer__link"
+              target="_blank"
+              >Igor Gotovchik</a
+            >
+          </span>
+        </div>
+      </div>
+    </footer>
+  </body>
 </html>
