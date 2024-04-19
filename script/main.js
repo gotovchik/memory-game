@@ -1,5 +1,38 @@
 "use strict";
 
+let timerId;
+const timerDisplay = document.querySelector(".timer");
+
+function timer(seconds) {
+  const currTime = Date.now();
+  const endTime = currTime + seconds * 1000;
+  displayTimer(seconds);
+
+  timerId = setInterval(() => {
+    const secondsLeft = Math.round((endTime - Date.now()) / 1000);
+    if (secondsLeft < 0) {
+      clearInterval(timerId);
+      cleanField();
+      const end = document.createElement("p");
+      end.textContent =
+        "Увы, время вышло!\n Хотите заново? Выберите сложность.";
+      end.classList.add("game__end");
+      game.classList.add("game__result");
+      game.append(end);
+      return;
+    }
+    displayTimer(secondsLeft);
+  }, 1000);
+}
+function displayTimer(seconds) {
+  const minutes = Math.floor(seconds / 60);
+  const remainderSeconds = seconds % 60;
+  const display = `${minutes < 10 ? `0` : ``}${minutes}:${
+    remainderSeconds < 10 ? `0` : ``
+  }${remainderSeconds}`;
+  timerDisplay.textContent = display;
+}
+
 function createNumbersArray(count) {
   const nums = [];
   let num = 1;
@@ -57,6 +90,7 @@ function setDifficulty(count) {
 }
 
 function cleanField() {
+  timerDisplay.classList.add("timer__red");
   document.getElementById("game");
   game.innerHTML = "";
   game.classList.remove("easy");
@@ -77,10 +111,14 @@ function startGame(count = 8) {
   for (let index = 0; index < nums.length; index++) {
     const card = createCard(nums, index);
     game.append(card);
+
     setTimeout(() => {
       card.classList.remove("flip");
+      timerDisplay.classList.remove("timer__red");
       clickable = true;
     }, 5000);
+    clearInterval(timerId);
+    timer(65);
   }
 
   const cards = document.querySelectorAll(".card");
@@ -125,14 +163,15 @@ function startGame(count = 8) {
         if (
           Array.from(cards).every((card) => card.className.includes("flip"))
         ) {
+          clearInterval(timerId);
           setTimeout(() => {
             cleanField();
-            const congrat = document.createElement("p");
-            congrat.textContent =
+            const end = document.createElement("p");
+            end.textContent =
               "Поздравляю! Вы выиграли!\n Хотите заново? Выберите сложность.";
-            congrat.classList.add("game__congratulations");
+            end.classList.add("game__end");
             game.classList.add("game__result");
-            game.append(congrat);
+            game.append(end);
           }, 2000);
         }
       }

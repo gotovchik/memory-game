@@ -181,7 +181,7 @@ button:active {
   align-items: center;
 }
 
-.game__congratulations {
+.game__end {
   font-size: 36px;
   color: #472b59;
   align-self: center;
@@ -269,4 +269,17 @@ button:active {
 .success .card__back {
   background-color: #98ab0b !important;
   border: 5px solid #7c8c06;
+}
+
+.timer {
+  border: 3px solid #e8f682;
+  border-radius: 20px;
+  padding: 10px;
+  font-size: 28px;
+  color: #e8f682;
+}
+
+.timer__red {
+  border-color: red !important;
+  color: red !important;
 }
